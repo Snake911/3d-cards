@@ -1,0 +1,64 @@
+body {
+	font-family: sans-serif;
+	background-color: #121212;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(3, 200px);
+	justify-content: center;
+	gap: 24px;
+	margin-top: 160px;
+}
+
+.card {
+	position: relative;
+	margin: 0 auto;
+	width: 200px;
+	height: 200px;
+	background-color: chocolate;
+	color: #fff;
+	font-size: 26px;
+	text-transform: uppercase;
+	border-radius: 16px;
+	cursor: pointer;
+	/* Включаем 3D трансформацию, задаем перспективу и длятельность*/
+	transform-style: preserve-3d;	
+	perspective: 1000px;
+	transition: transform 2s ease-in-out;
+}
+
+.card:nth-child(2) {
+	background-color: tomato;
+}
+
+.card:nth-child(3) {
+	background-color: coral;
+}
+
+/* Разворачиваем карточку */
+.card:hover {
+	transform: rotate3d(0, 1, 0, 180deg);
+}
+
+.card_forvard,
+.card_back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Отодвигаем вперед */
+.card_forvard {
+	transform: translateZ(40px);
+}
+
+/* Отодвигаем вперед и зеркально отражаем */
+.card_back {
+	transform: translateZ(-40px) scale(-1, 1);
+}
